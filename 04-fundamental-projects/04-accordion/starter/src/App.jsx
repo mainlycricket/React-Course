@@ -1,4 +1,10 @@
+import Questions from "./Questions";
+
 const App = () => {
-  return <h2>Accordion Starter</h2>;
+  return (
+    <main>
+      <Questions />
+    </main>
+  );
 };
 export default App;

@@ -1,11 +1,25 @@
 import { useState } from 'react';
 
 const UncontrolledInputs = () => {
-  const [value, setValue] = useState(0);
+  // const [value, setValue] = useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    // get values one by one
+    const name = formData.get('name');
+    console.log(name);
+    // get all of them
+    const newUser = Object.fromEntries(formData);
+    // do something (post request, add to list, etc)
+    console.log(newUser);
+    // Gotcha - re-render won't clear out the values
+    // setValue(value + 1);
+    // reset values
+    e.currentTarget.reset();
   };
+
   return (
     <div>
       <form className='form' onSubmit={handleSubmit}>
